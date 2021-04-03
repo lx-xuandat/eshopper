@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('eshopper.shop');
+        return view('eshopper.blog');
     }
 
     /**
@@ -45,7 +45,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('eshopper.product-details');
+        return view('eshopper.blog-single');
     }
 
     /**
@@ -82,18 +82,8 @@ class ProductController extends Controller
         //
     }
 
-    public function checkout()
+    public function contactUs()
     {
-        return view('eshopper.checkout');
-    }
-
-    public function cart()
-    {
-        return view('eshopper.cart');
-    }
-
-    public function home()
-    {
-        return view('eshopper.home');
+        return view('eshopper.contact-us');
     }
 }

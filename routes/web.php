@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +19,23 @@ use Illuminate\Support\Facades\Route;
 /**
  * eshoper
  */
-Route::get('/', function () {
-    return view('eshopper.home');
-})->name('home');
+
+// Home
+Route::get('/', [ProductController::class, 'home'])->name('home');
+
+// Shop
+Route::get('shop', [ProductController::class, 'index'])->name('shop');
+Route::get('product-details/{id}', [ProductController::class, 'show'])->name('product-details');
+Route::get('checkout', [ProductController::class, 'checkout'])->name('checkout');
+Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+
+// User
+//Route::get('login', [UserController::class, 'login'])->name('login');
+
+// Blog
+Route::get('blog', [BlogController::class, 'index'])->name('blog');
+Route::get('blog/{id}', [BlogController::class, 'show'])->name('blog-detail');
+Route::get('contact', [BlogController::class, 'contactUs'])->name('contact');
 
 /**
  * Adminitrator
